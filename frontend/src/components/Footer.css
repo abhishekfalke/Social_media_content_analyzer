@@ -1,0 +1,27 @@
+.footer{
+  width: 100%;
+  height: auto;
+  bottom: 0px;
+}
+.social-links a{
+  margin-left: 20px;
+  color: #000;
+}
+.social-links a:hover{
+  color: #DC143C !important;
+}
+.routes li{
+  margin-bottom: 5px;
+}
+.routes a:hover{
+  color: #DC143C !important;
+}
+.tech-stack li{
+  margin-bottom: 5px;
+}
+.tech-stack a:hover{
+  color: #DC143C !important;
+}
+.footer h5{
+  color: #DC143C;
+}
