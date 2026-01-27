@@ -43,7 +43,7 @@ function Signup() {
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          navigate("/");
+          navigate("/dashboard");
         }, 1000);
       } else {
         handleError(message);
@@ -61,39 +61,42 @@ function Signup() {
 
   return (
     <div className="form_container">
-      <h2>Signup Account</h2>
+      <h2 className="mb-4">Signup Account</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email</label>
+        <div className="d-flex flex-column align-items-start mb-4">
+          <label htmlFor="email" className="form-label">Email</label>
           <input
             type="email"
             name="email"
             value={email}
+            className="form-control"
             placeholder="Enter your email"
             onChange={handleOnChange}
           />
         </div>
-        <div>
-          <label htmlFor="email">Username</label>
+        <div className="d-flex flex-column align-items-start mb-4">
+          <label htmlFor="email" className="form-label">Username</label>
           <input
             type="text"
             name="username"
             value={username}
+            className="form-control"
             placeholder="Enter your username"
             onChange={handleOnChange}
           />
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
+        <div className="d-flex flex-column align-items-start mb-4">
+          <label htmlFor="password" className="form-label">Password</label>
           <input
             type="password"
             name="password"
             value={password}
+            className="form-control"
             placeholder="Enter your password"
             onChange={handleOnChange}
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className="btn btn-primary me-2">Submit</button>
         <span>
           Already have an account? <Link to={"/login"}>Login</Link>
         </span>
