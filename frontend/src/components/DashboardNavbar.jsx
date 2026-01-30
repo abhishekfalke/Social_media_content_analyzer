@@ -2,6 +2,7 @@ import { Link, NavLink, useNavigate } from "react-router";
 import "./Navbar.css";
 import logo from "../assets/logo.webp";
 import axios from "axios";
+const API = import.meta.env.VITE_BACKEND_URL
 
 function DashboardNavbar() {
   const navigate = useNavigate();
