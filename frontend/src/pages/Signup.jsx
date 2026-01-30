@@ -44,7 +44,7 @@ function Signup() {
         handleSuccess(message);
         setTimeout(() => {
           navigate("/dashboard");
-        }, 1000);
+        }, 2000);
       } else {
         handleError(message);
       }

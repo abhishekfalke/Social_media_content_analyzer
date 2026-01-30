@@ -1,0 +1,22 @@
+.loading {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: xx-large;
+}
+.dashboard_card {
+  border: 1px solid;
+  margin: 40px 100px;
+  padding: 10px 20px;
+  align-items: center;
+  border-radius: 10px;
+}
+.dashboard_card button {
+  width: 80%;
+}
+
+.dashboard_card h3 {
+  padding: 10px 100px;
+}

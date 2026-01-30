@@ -5,6 +5,9 @@ const mongoose = require("mongoose")
 const cors = require("cors")
 const cookieParser = require("cookie-parser")
 const authRoute = require("./routes/authRoute")
+const dashboardRoute = require('./routes/dashboardRoute')
+const uploadRoute = require('./routes/uploadRoute')
+const historyRoute = require('./routes/historyRoute')
 
 const app = express()
 const { MONGO_URL, PORT, FRONTEND_URL } = process.env
@@ -17,7 +20,9 @@ main()
       console.log(`listening at port: ${PORT}`);
     })
   })
-  .catch((e) => console.log("some error occured: ",e))
+  .catch((e) => {
+    console.log("some error occured: ",e)
+  })
 
 async function main() {
   await mongoose.connect(MONGO_URL)
@@ -32,7 +37,12 @@ app.use(cookieParser())
 app.use(express.json())
 
 app.use("/", authRoute)
+app.use('/', dashboardRoute)
+app.use("/", uploadRoute)
+app.use('/', historyRoute)
 
-app.get("/", (req, res) => {
-  res.send("root path.")
+app.use((err, req, res, next) => {
+  let {status=500, message='something went wrong'} = err
+  console.log(err);
+  res.json({message: message, status: status})
 })

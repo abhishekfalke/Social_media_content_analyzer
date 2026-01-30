@@ -19,15 +19,15 @@ function Footer() {
             <ul className="list-unstyled routes">
               <NavLink to='/' className='text-dark'><li>Home</li></NavLink>
               <NavLink to="/contact" className="text-dark"><li>Contact</li></NavLink>
-              <NavLink to="/about" className="text-dark"><li>About</li></NavLink>
-              <NavLink to="/services" className="text-dark"><li>Services</li></NavLink>
+              <NavLink to="/about" className="text-dark"><li>About us</li></NavLink>
+              <NavLink to="/services" className="text-dark"><li>Our services</li></NavLink>
             </ul>
           </div>
 
           <div className="col-md-4 ps-4 pe-4 tech-stack">
             <h5>Tech Stack</h5>
             <ul className="list-unstyled">
-              <li><a href="" className="text-dark">MongoDB</a></li>
+              <li><a href="https://www.mongodb.com/docs/" className="text-dark">MongoDB</a></li>
               <li><a href="" className="text-dark">React</a></li>
               <li><a href="" className="text-dark">Node.js</a></li>
               <li><a href="" className="text-dark">Express</a></li>

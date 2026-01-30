@@ -22,6 +22,7 @@ const Login = () => {
     toast.error(err, {
       position: "bottom-left",
     });
+
   const handleSuccess = (msg) =>
     toast.success(msg, {
       position: "bottom-left",
@@ -40,10 +41,10 @@ const Login = () => {
       console.log(data);
       const { success, message } = data;
       if (success) {
-        handleSuccess(message);
+        handleSuccess(message)
         setTimeout(() => {
           navigate("/dashboard");
-        }, 1000);
+        }, 2000);
       } else {
         handleError(message);
       }
