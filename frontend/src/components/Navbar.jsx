@@ -10,7 +10,7 @@ function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const Logout = async () => {
-    await axios.post("http://localhost:8080/logout", {}, {
+    await axios.post(`${API}/logout`, {}, {
       withCredentials: true
     });
     navigate("/login");
@@ -19,7 +19,7 @@ function Navbar() {
   useEffect(() => {
     const verifyUser = async () => {
       const { data } = await axios.get(
-        "http://localhost:8080",
+        API,
         { withCredentials: true }
       );
 
