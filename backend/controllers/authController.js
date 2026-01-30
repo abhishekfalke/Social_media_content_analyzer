@@ -89,7 +89,9 @@ module.exports.Logout = async (req, res, next) => {
   try{
     res.clearCookie("token", {
       path: "/",
-    })
+      sameSite: "none",
+      secure: true,
+    });
     res.status(201).json({ message: "User logged out successfully", success: true })
     next()
   } catch(error) {
