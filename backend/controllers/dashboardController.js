@@ -16,6 +16,6 @@ module.exports.getDashboardData = async (req, res, next) => {
     })
   } catch (error) {
     console.log(error);
-    next()
+    next(error)
   }
 }

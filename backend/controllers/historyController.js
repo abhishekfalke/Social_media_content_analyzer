@@ -9,6 +9,6 @@ module.exports.getHistory = async (req, res, next) => {
     res.json({status: true, docs})
   } catch (error) {
     console.log(error);
-    next()
+    next(error)
   }
 }
