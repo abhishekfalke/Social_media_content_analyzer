@@ -4,6 +4,7 @@ import Analysis from "./Analysis";
 import SingleSentimentPieCard from "./SingleDocumentAnalysis";
 import { useNavigate } from "react-router";
 import EngagementSuggPerDoc from "./EngagementSuggPerDoc";
+const API = import.meta.env.VITE_BACKEND_URL
 
 const History = () => {
   const [docs, setDocs] = useState([]);
@@ -13,7 +14,7 @@ const History = () => {
 
   useEffect(() => {
     const fetchHistory = async () => {
-      const res = await axios.get("http://localhost:8080/history", {
+      const res = await axios.get(`${API}/history`, {
         withCredentials: true,
       });
       if (res.data.docs && res.data.docs.length) setDocs(res.data.docs);

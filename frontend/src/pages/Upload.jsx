@@ -3,6 +3,7 @@ import axios from "axios";
 import Analysis from "./Analysis";
 import SingleSentimentPieCard from "./SingleDocumentAnalysis";
 import EngagementSuggPerDoc from "./EngagementSuggPerDoc";
+const API = import.meta.env.VITE_BACKEND_URL
 
 const Upload = () => {
   const [file, setFile] = useState(null);
@@ -16,7 +17,7 @@ const Upload = () => {
     const formData = new FormData();
     formData.append("file", file);
 
-    const res = await axios.post("http://localhost:8080/upload", formData, {
+    const res = await axios.post(`${API}/upload`, formData, {
       withCredentials: true,
     });
     if (res.data.status) {

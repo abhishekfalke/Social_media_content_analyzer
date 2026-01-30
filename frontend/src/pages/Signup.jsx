@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import './Signup.css'
+const API = import.meta.env.VITE_BACKEND_URL
 
 function Signup() {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ function Signup() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:8080/signup",
+        `${API}/signup`,
         {
           ...inputValue,
         },

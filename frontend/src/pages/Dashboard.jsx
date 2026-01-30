@@ -1,3 +1,5 @@
+const API = import.meta.env.VITE_BACKEND_URL
+
 import { useEffect, useState } from "react";
 import { useNavigate, Link, NavLink } from "react-router";
 import axios from "axios";
@@ -16,7 +18,7 @@ const Dashboard = () => {
    useEffect(() => {
     const verifyUser = async () => {
       try {
-        const { data } = await axios.get("http://localhost:8080", {
+        const { data } = await axios.get(API, {
           withCredentials: true,
         });
         const { status, user } = data
@@ -39,7 +41,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchDocuments = async () => {
-      const res = await axios.get('http://localhost:8080/history', {
+      const res = await axios.get(`${API}/history`, {
         withCredentials: true
       })
       if (res.data.docs) {
@@ -52,7 +54,7 @@ const Dashboard = () => {
   }, [])
 
   const Logout = async () => {
-    await axios.post("http://localhost:8080/logout", {}, {
+    await axios.post(`${API}/logout`, {}, {
       withCredentials: true
     })
     navigate("/login");

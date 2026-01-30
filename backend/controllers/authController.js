@@ -14,12 +14,22 @@ module.exports.Signup = async (req, res, next) => {
     const user = await User.create({ email, password, username, createdAt })
     const token = createSecretToken(user._id)
 
+    // **************In Live****************
+
     res.cookie("token", token, {
-      httpOnly: false,   
-      path: "/",         
-      sameSite: "lax",
-      secure: false      
+      httpOnly: true,
+      path: "/",
+      sameSite: "none",
+      secure: true
     });
+
+    //**************In Development******************** */
+    // res.cookie("token", token, {
+    //   httpOnly: false,   
+    //   path: "/",         
+    //   sameSite: "lax",
+    //   secure: false      
+    // });
 
 
     res
@@ -50,12 +60,23 @@ module.exports.Login = async (req, res, next) => {
     }
 
     const token = createSecretToken(user._id)
+
+    // **************In Live****************
+
     res.cookie("token", token, {
-      httpOnly: false,   
-      path: "/",         
-      sameSite: "lax",
-      secure: false      
+      httpOnly: true,
+      path: "/",
+      sameSite: "none",
+      secure: true
     });
+
+    //**************In Development******************** */
+    // res.cookie("token", token, {
+    //   httpOnly: false,   
+    //   path: "/",         
+    //   sameSite: "lax",
+    //   secure: false      
+    // });
     res.status(201).json({ message: "User logged in successfully", success: true })
     next()
   } catch (error) {
