@@ -93,7 +93,6 @@ module.exports.Logout = async (req, res, next) => {
       secure: true,
     });
     res.status(201).json({ message: "User logged out successfully", success: true })
-    next()
   } catch(error) {
     console.log(error)
     next()
