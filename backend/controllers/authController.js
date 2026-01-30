@@ -85,12 +85,15 @@ module.exports.Logout = async (req, res, next) => {
   try {
     res.clearCookie("token", cookieOptions);
 
+    console.log('try me');
+
     return res.status(200).json({
       message: "User logged out successfully",
       success: true
     });
 
   } catch (error) {
+    console.log('catch me');
     console.error(error);
     next(error);
   }

@@ -8,9 +8,12 @@ function DashboardNavbar() {
   const navigate = useNavigate();
 
   const Logout = async () => {
-    await axios.post(`${API}/logout`, {}, {
+    console.log('API: ', API);
+
+    const res = await axios.post(`${API}/logout`, {}, {
       withCredentials: true
     });
+    console.log(res)
     navigate("/login");
   };
 
