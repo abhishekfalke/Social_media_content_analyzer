@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 const cookieOptions = {
   httpOnly: true,
   secure: true, 
-  sameSite: "none",
+  sameSite: "lax",
   path: "/"
 };
 
