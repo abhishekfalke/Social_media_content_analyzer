@@ -2,13 +2,6 @@ const User = require("../models/userModel");
 const { createSecretToken } = require("../util/secretToken");
 const bcrypt = require("bcryptjs");
 
-const cookieOptions = {
-  httpOnly: true,
-  secure: true, 
-  sameSite: "none",
-  path: "/"
-};
-
 module.exports.Signup = async (req, res, next) => {
   try {
     const { email, password, username } = req.body;
@@ -32,7 +25,12 @@ module.exports.Signup = async (req, res, next) => {
 
     const token = createSecretToken(user._id);
 
-    res.cookie("token", token, cookieOptions);
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+      path: "/",
+    });
 
     user.password = undefined;
 
@@ -68,7 +66,13 @@ module.exports.Login = async (req, res, next) => {
 
     const token = createSecretToken(user._id);
 
-    res.cookie("token", token, cookieOptions);
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+      path: "/",
+    });
+
 
     return res.status(200).json({
       message: "User logged in successfully",
@@ -84,12 +88,12 @@ module.exports.Login = async (req, res, next) => {
 module.exports.Logout = async (req, res, next) => {
   try {
     console.log(req)
-    res.cookie("token", "", {
+
+    res.clearCookie("token", {
       httpOnly: true,
       secure: true,
       sameSite: "none",
       path: "/",
-      expires: new Date(0),
     });
 
     return res.status(200).json({

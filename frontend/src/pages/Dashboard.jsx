@@ -53,12 +53,6 @@ const Dashboard = () => {
     fetchDocuments()
   }, [])
 
-  const Logout = async () => {
-    await axios.post(`${API}/logout`, {}, {
-      withCredentials: true
-    })
-    navigate("/login");
-  };
   return (
     <>
       <div>
