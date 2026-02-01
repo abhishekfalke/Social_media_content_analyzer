@@ -41,6 +41,8 @@ const Login = () => {
       );
 
       const { status, message } = data;
+      console.log(data)
+      
       if (status) {
         handleSuccess(message)
         setTimeout(() => {
