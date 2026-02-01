@@ -4,9 +4,9 @@ const bcrypt = require("bcryptjs");
 
 const cookieOptions = {
   httpOnly: true,
-  path: "/",
-  sameSite: "none", 
-  secure: true      
+  secure: true, 
+  sameSite: "none",
+  path: "/"
 };
 
 module.exports.Signup = async (req, res, next) => {
@@ -83,7 +83,7 @@ module.exports.Login = async (req, res, next) => {
 
 module.exports.Logout = async (req, res, next) => {
   try {
-    res.clearCookie("token");
+    res.clearCookie("token", cookieOptions);
 
     return res.status(200).json({
       message: "Logged out successfully",
