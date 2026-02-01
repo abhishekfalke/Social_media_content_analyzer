@@ -1,3 +1,9 @@
+const Sentiment = require('sentiment')
+const sentiment = new Sentiment();
+const Document = require('../models/document')
+const { extractText } = require('../util/ocr_pdfParse');
+const { uploadPdf } = require('../util/pdfParser');
+
 module.exports.uploadFile = async (req, res, next) => {
   try {
     const userId = req.user;
