@@ -39,7 +39,7 @@ const Login = () => {
         },
         { withCredentials: true }
       );
-      
+
       const { success, message } = data;
       if (success) {
         handleSuccess(message)
@@ -87,7 +87,7 @@ const Login = () => {
         </div>
         <button type="submit" className="btn btn-primary me-2">Submit</button>
         <span>
-          Already have an account? <Link to={"/signup"}>Signup</Link>
+          Don't have an account? <Link to={"/signup"}>Signup</Link>
         </span>
       </form>
       <ToastContainer />
