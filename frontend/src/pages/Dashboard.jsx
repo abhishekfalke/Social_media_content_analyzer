@@ -21,8 +21,8 @@ const Dashboard = () => {
         const { data } = await axios.get(API, {
           withCredentials: true,
         });
+        
         const { status, user } = data
-        console.log(data);
         setUsername(user)
         if (!status) {
           navigate("/login")

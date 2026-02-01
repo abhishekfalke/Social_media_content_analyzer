@@ -20,14 +20,11 @@ const Upload = () => {
     const res = await axios.post(`${API}/upload`, formData, {
       withCredentials: true,
     });
+    
     if (res.data.status) {
-      console.log("idhar aaya");
       setData(res.data.doc)
       setStatus(true)
       setLoading(false)
-    }
-    else {
-      console.log("nahi idhar aaya");
     }
   };
 
