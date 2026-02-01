@@ -40,8 +40,8 @@ function Signup() {
         },
         { withCredentials: true }
       );
-      const { success, message } = data;
-      if (success) {
+      const { status, message } = data;
+      if (status) {
         handleSuccess(message);
         setTimeout(() => {
           navigate("/dashboard");

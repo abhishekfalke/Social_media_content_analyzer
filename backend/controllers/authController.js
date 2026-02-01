@@ -7,12 +7,12 @@ module.exports.Signup = async (req, res, next) => {
     const { email, password, username } = req.body;
 
     if (!email || !password || !username) {
-      return res.status(400).json({ message: "All fields are required" });
+      return res.status(400).json({ message: "All fields are required", status: false });
     }
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(409).json({ message: "User already exists" });
+      return res.status(409).json({ message: "User already exists", status: false });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -36,7 +36,7 @@ module.exports.Signup = async (req, res, next) => {
 
     return res.status(201).json({
       message: "User signed up successfully",
-      success: true,
+      status: true,
       user
     });
 
@@ -51,17 +51,17 @@ module.exports.Login = async (req, res, next) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({ message: "All fields are required" });
+      return res.status(400).json({ message: "All fields are required", status: false });
     }
 
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(401).json({ message: "Incorrect email or password" });
+      return res.status(401).json({ message: "Incorrect email or password", status: false });
     }
 
     const auth = await bcrypt.compare(password, user.password);
     if (!auth) {
-      return res.status(401).json({ message: "Incorrect email or password" });
+      return res.status(401).json({ message: "Incorrect email or password", status: false });
     }
 
     const token = createSecretToken(user._id);
@@ -76,7 +76,7 @@ module.exports.Login = async (req, res, next) => {
 
     return res.status(200).json({
       message: "User logged in successfully",
-      success: true
+      status: true
     });
 
   } catch (error) {
@@ -96,7 +96,7 @@ module.exports.Logout = async (req, res, next) => {
 
     return res.status(200).json({
       message: "Logged out successfully",
-      success: true,
+      status: true,
     });
   } catch (error) {
     console.log(error);

@@ -11,7 +11,8 @@ function DashboardNavbar() {
     const res = await axios.post(`${API}/logout`, {}, {
       withCredentials: true
     });
-    navigate("/login");
+    if (res.status)
+      navigate("/login");
   };
 
   return (
