@@ -27,21 +27,26 @@ Cloud Image upload: multer + cloudinary
 
 ### 1. Clone the Repository
 
+open terminal and paste: 
 git clone https://github.com/abhishekfalke/Social_media_content_analyzer.git
 
 ### 2. backend setup ('http://localhost:8080')
 
 cd backend
 npm install
-npm start
+node app.js
 
 ### 3. frontend setup ('http://localhost:5173')
 
 cd frontend
 npm install
 npm run dev
+open browser and hit : http://localhost:5173
 
 ## Deployed application link
+
+frontend link: https://social-media-content-analyzer-1-seven.vercel.app/
+backend link: https://social-media-content-analyzer-31k6.onrender.com/
 
 
 
